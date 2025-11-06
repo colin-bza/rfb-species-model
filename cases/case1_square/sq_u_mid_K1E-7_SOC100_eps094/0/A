@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      A;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet
+    {
+        // Pure reactant
+        type            fixedValue;
+        value           uniform 0.05;
+    }
+
+    outlet
+    {
+        // Open boundary
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+
+
+    top
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+
+    bottom
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+
+    front
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+
+    back
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+    // Electrode inlet, no flow
+    e_in_wall
+    {
+        type            zeroGradient;
+    }
+    // Electrode outlet, no flow
+    e_out_wall
+    {
+        type            zeroGradient;
+    }
+
+    // Transverse flow
+    elec_left
+    {
+        type            cyclic;
+    }
+
+    elec_right
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

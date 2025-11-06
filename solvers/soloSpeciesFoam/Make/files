@@ -1,0 +1,3 @@
+soloSpeciesFoam.C
+
+EXE = $(FOAM_APPBIN)/soloSpeciesFoam

@@ -1,0 +1,16 @@
+singleGraph
+{
+    start   (0.0005 0.0005 0);
+    end     (0.0005 0.0005 0.014);
+    fields  (A U);
+
+    #includeEtc "caseDicts/postProcessing/graphs/sampleDict.cfg"
+
+    setConfig
+    {
+        axis    z;
+    }
+
+    // Must be last entry
+    #includeEtc "caseDicts/postProcessing/graphs/graph.cfg"
+}

@@ -1,0 +1,13 @@
+// Case-setup corresponding to choked-nozzle
+
+species
+(
+N2
+O2
+);
+
+elements
+();
+
+reactions
+{}

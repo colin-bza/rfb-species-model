@@ -1,0 +1,29 @@
+elements
+(
+C
+H
+N
+O
+);
+
+species
+(
+    C6H5NO3
+    H2O2
+    CO2
+    H2O
+    HNO3
+    OH
+);
+
+reactions
+{
+    pnpReaction
+    {
+        type        irreversibleArrheniusReaction;
+        reaction    "0.5C6H5NO3 + 7H2O2 = 3CO2 + 8H2O + 0.5HNO3";
+        A           1.93e5;
+        beta        0;
+        Ta          0;
+    }
+}

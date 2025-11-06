@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# run background mesh
+blockMesh | tee log.blockMesh
+checkMesh | tee log.checkMesh_block
+
+# to extract features if needed (when running for the first time otherwise comment line)
+surfaceFeatureExtract | tee log.surfaceFeatureExtract
+
+# run snappyHexMesh 
+decomposePar | tee log.decomposePar
+mpirun -np 16 snappyHexMesh -overwrite -parallel | tee log.snappyHexMesh
+reconstructParMesh -constant | tee log.reconstructParMesh
+rm -rf processor*
+checkMesh | tee log.checkMesh_snappy
+
+#------------------------------------------------------------------------------

@@ -1,0 +1,28 @@
+elements
+(
+C
+H
+O
+Na
+);
+
+species
+(
+    C2H5OH
+    CH3COOC2H5
+    CH3COONa
+    H2O
+    NaOH
+);
+
+reactions
+{
+    pnpReaction
+    {
+        type        irreversibleArrheniusReaction;
+        reaction    "CH3COOC2H5 + NaOH = CH3COONa + C2H5OH";
+        A           0.125;
+        beta        0;
+        Ta          0;
+    }
+}

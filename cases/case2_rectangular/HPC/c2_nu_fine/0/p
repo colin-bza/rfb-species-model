@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+// Value corresponding to p_atm/rho_sol
+internalField   uniform 75.056;
+
+boundaryField
+{
+    inlet
+    {
+        type              zeroGradient;
+    }
+
+    // Electrode inlet, no flow
+    e_in_wall
+    {
+          type              zeroGradient;
+    }
+
+    outlet
+    {
+        type            fixedValue;
+        value           uniform 75.056;
+    }
+
+    // Electrode outlet, no flow
+    e_out_wall
+    {
+        type              zeroGradient;
+    }
+
+
+    top
+    {
+        type              zeroGradient;
+    }
+
+    bottom
+    {
+        type              zeroGradient;
+    }
+
+    front
+    {
+        type              zeroGradient;
+    }
+
+    back
+    {
+        type              zeroGradient;
+    }
+
+    // Transverse flow
+    elec_left
+    {
+        type            cyclic;
+    }
+
+    elec_right
+    {
+        type            cyclic;
+    }
+
+}
+
+// ************************************************************************* //

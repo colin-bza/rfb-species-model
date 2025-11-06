@@ -1,0 +1,6 @@
+//brinkmanPisoFoam.C
+
+//EXE = /rds/general/user/cp715/home/run_OpenFOAM/brinkmanPisoFoam
+soloSpeciesFoam.C
+
+EXE = /rds/general/user/cp715/home/run_OpenFOAM/soloSpeciesFoam

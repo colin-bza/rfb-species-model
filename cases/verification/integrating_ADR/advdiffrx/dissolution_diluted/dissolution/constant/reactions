@@ -1,0 +1,24 @@
+elements
+(
+H
+O
+Na
+);
+
+species
+(
+    H2O
+    NaOH
+);
+
+reactions
+{
+    pnpReaction
+    {
+        type        irreversibleArrheniusReaction;
+        reaction    "NaOH = H2O";
+        A           1.25;
+        beta        0;
+        Ta          0;
+    }
+}

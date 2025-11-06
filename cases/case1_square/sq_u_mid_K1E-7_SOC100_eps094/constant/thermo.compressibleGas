@@ -1,0 +1,101 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermo.compressibleGas;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+H2O
+{
+    specie
+    {
+        molWeight       18.01528;
+    }
+    elements
+    {
+        H       2;
+        O       1;
+    }
+    thermodynamics
+    {
+        Tlow            200;
+        Thigh           5000;
+        Tcommon         1000;
+        highCpCoeffs    ( 3.69758 0.00061352 -1.25884e-07 1.77528e-11 -1.13644e-15 -1233.93 3.18917 );
+        lowCpCoeffs     ( 3.21294 0.00112749 -5.75615e-07 1.31388e-09 -8.76855e-13 -1005.25 6.03474 );
+        Cp              919.627;
+        Hf              0;
+    }
+    transport
+    {
+        mu              2.055e-5;  // Dynamic viscosity
+        Pr              0.717;    // Does this also applies for mass transfer?
+    }
+}
+
+A
+{
+    specie
+    {
+        molWeight       39.997;
+    }
+    elements
+    {
+        A      1;
+    }
+    thermodynamics
+    {
+        Tlow            200;
+        Thigh           5000;
+        Tcommon         1000;
+        highCpCoeffs    ( 3.69758 0.00061352 -1.25884e-07 1.77528e-11 -1.13644e-15 -1233.93 3.18917 );
+        lowCpCoeffs     ( 3.21294 0.00112749 -5.75615e-07 1.31388e-09 -8.76855e-13 -1005.25 6.03474 );
+        Cp              919.627;
+        Hf              0;
+    }
+    transport
+    {
+        mu              2.055e-5;  // Dynamic viscosity
+        Pr              0.717;    // Does this also applies for mass transfer?
+    }
+}
+
+B
+{
+    specie
+    {
+        molWeight       39.997;
+    }
+    elements
+    {
+        B       1;
+    }
+    thermodynamics
+    {
+        Tlow            200;
+        Thigh           5000;
+        Tcommon         1000;
+        highCpCoeffs    ( 3.69758 0.00061352 -1.25884e-07 1.77528e-11 -1.13644e-15 -1233.93 3.18917 );
+        lowCpCoeffs     ( 3.21294 0.00112749 -5.75615e-07 1.31388e-09 -8.76855e-13 -1005.25 6.03474 );
+        Cp              919.627;
+        Hf              0;
+    }
+    transport
+    {
+        mu              2.055e-5;  // Dynamic viscosity
+        Pr              0.717;    // Does this also applies for mass transfer?
+    }
+}
+
+
+// ************************************************************************* //

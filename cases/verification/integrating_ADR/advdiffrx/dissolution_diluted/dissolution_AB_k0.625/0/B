@@ -1,0 +1,63 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      NaOH;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet
+    {
+        // Sodium hydroxide
+        type            fixedValue;
+        value           uniform 0.00;
+    }
+
+    outlet
+    {
+        // No nitrogen at the exit
+        type            zeroGradient;
+    }
+
+
+    top
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+
+    bottom
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+
+    front
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+
+    back
+    {
+        // Impermeable boundary
+        type              zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

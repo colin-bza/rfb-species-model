@@ -1,0 +1,6 @@
+//brinkmanPisoFoam.C
+
+//EXE = $(FOAM_APPBIN)/brinkmanPisoFoam
+soloSpeciesFoam.C
+
+EXE = $(FOAM_APPBIN)/soloSpeciesFoam
