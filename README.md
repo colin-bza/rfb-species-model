@@ -28,8 +28,15 @@ The following instructions are applicable for OpenFOAM-v2312. This version of Op
 
 For post processing and visualizing the simulation results, it has to be used ParaView. This software is automatically installed when following the Installation Guide of the “ThirdParty” open-source software that comes along with OpenFOAM. However, this part of the installation may fail. If this happens, ParaView can be installed separately from the ParaView official website. Python 3 is required to execute a number of scripts that facilitate the creation of the meshes and post processing the results (Python website).
 
-Once OpenFOAM is installed, the solver ```brinkmanPisoFoam``` must be compiled, which solves the momentum and mass conservation equation. Also, the solver ```soloSpeciesFoam``` must be compiled, which solves the mass conservation equation only.
+Once OpenFOAM is installed, the solver ```brinkmanPisoFoam``` must be compiled, which solves the momentum and mass conservation equation. Also, the solver ```soloSpeciesFoam``` must be compiled, which solves the mass conservation equation only. It is recommended to use:
 
+```
+wclean
+```
+
+```
+wmake
+```
 The general structure of each case contains three folders, alongside several code utilities and scripts. The 0/ directory contains the initial and boundary conditions for all fields. The constant directory contains the thermophysical and transport properties of the fluid, the electrode porosity, permeability (which is a function of porosity), among others. The system directory contains files to set-up the time and space discretization algorithms, the convergence criteria of the solvers, the domain decomposition dictionary and the runtime simulation control dictionary.
 
 The Allclean script removes all the simulation results that have been written to files in serial and parallel simulations. The Allrun executes a series of commands to create the mesh with blockMesh, generate the porous medium in the mesh with topoSet, and decompose the domain using the decomposeParDict file depending on the number of cores where the simulations are run, although it is not necessary to include all of them.
