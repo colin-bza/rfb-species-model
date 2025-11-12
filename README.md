@@ -1,18 +1,14 @@
 ### RFB-model
 
-RFB-model is a suite of OpenFOAM cases and solvers
-applicable to redox flow battery modelling.
+RFB-model is a suite of OpenFOAM cases and solvers applicable to redox flow battery modelling.
 
-- 3-D simulation of **flow in a rectangular channel**
-with a porous blockage element using the Darcy-Forcheimer
-model.
+- 3-D simulation of **flow in a rectangular channel** with a porous blockage element using the Darcy-Forcheimer model.
 
 - Mesh of a **channel electrode**
 
 - Tested in OpenFOAM-v2006
 
-Test: simulate one-dimensional flow in a
-rectangular channel
+Test: simulate one-dimensional flow in a rectangular channel
 
 ```
 cd cases/porousBlockage_3D
@@ -28,7 +24,7 @@ The following instructions are applicable for OpenFOAM-v2312. This version of Op
 
 For post processing and visualizing the simulation results, it has to be used ParaView. This software is automatically installed when following the Installation Guide of the “ThirdParty” open-source software that comes along with OpenFOAM. However, this part of the installation may fail. If this happens, ParaView can be installed separately from the ParaView official website. Python 3 is required to execute a number of scripts that facilitate the creation of the meshes and post processing the results (Python website).
 
-Once OpenFOAM is installed, the solver ```brinkmanPisoFoam``` must be compiled, which solves the momentum and mass conservation equation. Also, the solver ```soloSpeciesFoam``` must be compiled, which solves the mass conservation equation only. It is recommended to use:
+Once OpenFOAM is installed, the solver ```brinkmanPisoFoam``` must be compiled, which solves the momentum and mass conservation equation. Also, the solver ```soloSpeciesFoam``` must be compiled, which solves the mass conservation equation only. To compile, you have to go to the "solver" folder. Then:
 
 ```
 wclean
