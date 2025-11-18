@@ -47,6 +47,9 @@ Once the model has finished simulating, you can view the results in Paraview.
 ```
 paraview foam.foam
 ```
+
+In addition, a file ```XA_vs_time.dat``` is created to obtain the molar fraction value at all times at the inlet and outlet of the channel. This makes it much easier to calculate the conversion, a value that was used as a response variable in this study.
+
 Authors
 - Catalina Pino - Research Associate in Flow Battery Modelling at Imperial College London
 - Felipe Huerta - 4th year PhD Student at Imperial College London
