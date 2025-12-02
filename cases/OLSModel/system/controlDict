@@ -1,0 +1,134 @@
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//application     brinkmanPisoFoam;
+
+    startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+    endTime        80;
+
+    deltaT          2e-3;
+
+writeControl    adjustableRunTime;
+
+    writeInterval   1;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+    adjustTimeStep no;
+
+    maxDeltaT       1;
+
+    maxCo           0.5;
+
+
+functions
+{
+    conversionXA
+    {
+        type              coded;
+        name              conversionXA;
+        libs ("libutilityFunctionObjects.so");
+        enabled           true;
+        outputControl     timeStep;
+        outputInterval    1;
+
+        codeExecute
+            #{
+                const volVectorField& U = mesh().lookupObject<volVectorField>("U");
+                const volScalarField UZ(U.component(vector::Z));
+                const volScalarField& A = mesh().lookupObject<volScalarField>("A");
+
+                const label inletPatchID = mesh().boundaryMesh().findPatchID("inlet");
+                const label outletPatchID = mesh().boundaryMesh().findPatchID("outlet");
+
+                const scalarField& A_inlet = A.boundaryField()[inletPatchID];
+                const scalarField& UZ_inlet = UZ.boundaryField()[inletPatchID];
+                const vectorField& Sf_inlet = mesh().Sf().boundaryField()[inletPatchID];
+
+                const scalarField& A_outlet = A.boundaryField()[outletPatchID];
+                const scalarField& UZ_outlet = UZ.boundaryField()[outletPatchID];
+                const vectorField& Sf_outlet = mesh().Sf().boundaryField()[outletPatchID];
+
+                scalar fluxIn = 0.0;
+                scalar fluxOut = 0.0;
+
+                forAll(A_inlet, i)
+                {
+                    fluxIn += UZ_inlet[i] * A_inlet[i] * mag(Sf_inlet[i]);
+                }
+
+                forAll(A_outlet, i)
+                {
+                    fluxOut += UZ_outlet[i] * A_outlet[i] * mag(Sf_outlet[i]);
+                }
+
+                scalar fluxInAbs = mag(fluxIn);
+                scalar fluxOutAbs = mag(fluxOut);
+
+                scalar conversion = 0.0;
+
+                if (fluxInAbs > SMALL)
+                {
+                    conversion = 1.0 - (fluxOutAbs / fluxInAbs);
+                }
+                else
+                {
+                    Info << ">>> [WARNING] flujo de entrada muy bajo, conversión forzada a 0" << endl;
+                    conversion = 0.0;
+                }
+
+                scalar timeVal = mesh().time().value();
+
+                Info << ">>> Conversión X_A = " << conversion << endl;
+                Info << "fluxIn = " << fluxIn << ", fluxOut = " << fluxOut << endl;
+
+                std::ifstream checkFile("XA_vs_time.dat");
+                bool newFile = !checkFile.good();
+                checkFile.close();
+
+                std::ofstream logFile("XA_vs_time.dat", std::ios::app);
+                if (logFile.is_open())
+                {
+                    if (newFile)
+                        logFile << "# time\tX_A\tfluxIn\tfluxOut" << std::endl;
+
+                    logFile << timeVal << "\t" << conversion << "\t" << fluxIn << "\t" << fluxOut << std::endl;
+                    logFile.close();
+                }
+            #};
+
+    }
+}
+// ************************************************************************* //

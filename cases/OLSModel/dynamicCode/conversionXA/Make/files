@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = f0d04d2df675c4f85b1223e113866fd6ea194762
+ */
+functionObjectTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libconversionXA_f0d04d2df675c4f85b1223e113866fd6ea194762
