@@ -1,5 +1,0 @@
-rm -r [0-9].*
-rm -r [1-9]*
-rm log.*
-rm -r logs
-rm -r processor*/
