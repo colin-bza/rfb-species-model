@@ -1,4 +1,4 @@
-### RFB-model
+### RFB-species-model
 
 RFB-model is a suite of OpenFOAM cases and solvers applicable to redox flow battery modelling.
 
