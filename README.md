@@ -1,4 +1,4 @@
-<img width="1036" height="288" alt="image" src="https://github.com/user-attachments/assets/ac52edcb-a154-4f51-9ebe-45f87cf65627" />### RFB-model
+### RFB-model
 
 RFB-model is a suite of OpenFOAM cases and solvers applicable to redox flow battery modelling.
 
