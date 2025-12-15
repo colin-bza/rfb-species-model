@@ -24,7 +24,7 @@ wmake
 
 If you would like to review the details of the original solver created by Pino and Huerta, please visit the following link:
 
-https://doi.org/10.5281/zenodo.8003398
+[https://doi.org/10.5281/zenodo.8003398](https://doi.org/10.5281/zenodo.17940530)
 
 The general structure of each case contains three folders, alongside several code utilities and scripts. The 0/ directory contains the initial and boundary conditions for all fields. The constant directory contains the thermophysical and transport properties of the fluid, the electrode porosity, permeability (which is a function of porosity), among others. The system directory contains files to set-up the time and space discretization algorithms, the convergence criteria of the solvers, the domain decomposition dictionary and the runtime simulation control dictionary.
 
