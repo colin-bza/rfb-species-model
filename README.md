@@ -59,5 +59,5 @@ On the other hand, Python code is available for the experimental design of the L
 
 Authors
 - Catalina Pino - Research Associate in Flow Battery Modelling at Imperial College London
-- Felipe Huerta - 4th year PhD Student at Imperial College London
+- Felipe Huerta - Assistant Professor at Pontificia Universidad Católica de Chile.
 - Lucas Ortiz - Master of Science Student at Pontificia Universidad Católica de Chile
