@@ -1,4 +1,4 @@
-### RFB-model
+<img width="1036" height="288" alt="image" src="https://github.com/user-attachments/assets/ac52edcb-a154-4f51-9ebe-45f87cf65627" />### RFB-model
 
 RFB-model is a suite of OpenFOAM cases and solvers applicable to redox flow battery modelling.
 
@@ -21,6 +21,11 @@ wclean
 ```
 wmake
 ```
+
+If you would like to review the details of the original solver created by Pino and Huerta, please visit the following link:
+
+[https://github.com/felipehuerta17/rfpm-foam](https://doi.org/10.5281/zenodo.8003398)
+
 The general structure of each case contains three folders, alongside several code utilities and scripts. The 0/ directory contains the initial and boundary conditions for all fields. The constant directory contains the thermophysical and transport properties of the fluid, the electrode porosity, permeability (which is a function of porosity), among others. The system directory contains files to set-up the time and space discretization algorithms, the convergence criteria of the solvers, the domain decomposition dictionary and the runtime simulation control dictionary.
 
 The Allclean script removes all the simulation results that have been written to files in serial and parallel simulations. The Allrun executes a series of commands to create the mesh with blockMesh, generate the porous medium in the mesh with topoSet, and decompose the domain using the decomposeParDict file depending on the number of cores where the simulations are run, although it is not necessary to include all of them.
