@@ -50,7 +50,7 @@ paraview foam.foam
 
 In addition, a file ```XA_vs_time.dat``` is created to obtain the molar fraction value at all times at the inlet and outlet of the channel. This makes it much easier to calculate the conversion, a value that was used as a response variable in this study.
 
-On the other hand, Python code is available for the experimental design of the Latin Hypercube, where the desired variables can be modified along with the number of desired experiments.
+On the other hand, Python code is available for the experimental design of the Latin Hypercube, where the desired variables can be modified along with the number of desired experiments. To use this code, you need the libraries ```numpy```, ```pandas``` and ```pyDOE2```
 
 Authors
 - Catalina Pino - Research Associate in Flow Battery Modelling at Imperial College London
